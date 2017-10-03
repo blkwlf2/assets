@@ -1,4 +1,22 @@
-﻿<?php require("php/index_functions.php"); include("php/assets.php"); ?>
+﻿<?php
+
+	require("php/index_functions.php"); 
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "changeme";
+	$dbname = "tfvisuals";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	
+	// Check connection
+	if ($conn->connect_error)
+	{
+		die("Connection failed: " . $conn->connect_error);
+	}
+	
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -184,428 +202,28 @@
 									</thead>
 									<tbody>
 										<tr class="gradeX">
-											<td><?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tfvisuals";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT id FROM assets Where ID = 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["id"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["assettagid"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets Where id = 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["serialnumber"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["cost"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id =1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["model"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id =1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["manufacturer"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["location"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["purchasedate"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td>
 											<?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 1";
-$result = $conn->query($sql);
+												$sql = "SELECT * FROM assets";
+												$result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["datecreated"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
+												if ($result->num_rows > 0)
+												{
+													while($row = $result->fetch_assoc())
+													{
+														echo "<tr><td>" . $row["id"] . "</td><td>" . 
+																		  $row["assettagid"] . "</td><td>" . 
+																		  $row["serialnumber"] . "</td><td>" .
+																		  $row["cost"] . "</td><td>" .
+																		  $row["model"] . "</td><td>" .
+																		  $row["manufacturer"] . "</td><td>" .
+																		  $row["location"] . "</td><td>" .
+																		  $row["purchasedate"] . "</td><td>" . 
+																		  $row["datecreated"] . "</td></tr>";
+													}
+												}
+											?>
 										</tr>
-										<tr><td><?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tfvisuals";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 2";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["id"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 2";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["assettagid"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets Where id = 2";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["serialnumber"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 2";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["cost"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 2";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["model"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 2";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["manufacturer"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 2";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["location"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 2";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["purchasedate"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td>
-											<?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 2";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["datecreated"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-</tr>
-											<td><?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tfvisuals";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 3";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["id"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 3";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["assettagid"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets Where id = 3";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["serialnumber"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 3";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["cost"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 3";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["model"];
-    }
-} else {
-    echo "0 results";
-}
-?></td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 3";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["manufacturer"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 3";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["location"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td><?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 3";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["purchasedate"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-											<td>
-											<?php
-$sql = "SELECT id, assettagid, serialnumber, cost, model, manufacturer, location, purchasedate, datecreated FROM assets where id = 3";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["datecreated"];
-    }
-} else {
-    echo "0 results";
-}
-?>
-</td>
-</tr>
 									</tbody>
-									<tfoot>
-										<tr>
-											<th>ID</th>
-											<th>Asset Tag ID</th>
-											<th>Serial</th>
-											<th>cost</th>
-											<th>model</th>
-											<th>Manufacturer</th>
-											<th>Location</th>
-											<th>Purchase Date</th>
-											<th>date created</th>
-										</tr>
-									</tfoot>
 								</table>
 							</div>
 						</div>
@@ -676,3 +294,7 @@ if ($result->num_rows > 0) {
 
 </body>
 </html>
+
+<?php
+	$conn->close();
+?>
