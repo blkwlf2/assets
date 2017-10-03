@@ -1,5 +1,6 @@
 ﻿<?php
 
+	require("php/global.php");
 	require("php/index_functions.php"); 
 
 	$servername = "localhost";
@@ -170,14 +171,13 @@
 			<!-- Breadcrumb -->
 			<ol class="breadcrumb breadcrumb-2"> 
 				<li><a href="index.php"><i class="fa fa-home"></i>Home</a></li> 
-				<li><a href="basic-tables.html">Tables</a></li> 
 				<li class="active"><strong>Data Tables</strong></li> 
 			</ol>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
 						<div class="panel-heading clearfix">
-							<h3 class="panel-title">Basic Data Tables with responsive Plugin</h3>
+							<h3 class="panel-title">A BIG BAD TABLE</h3>
 							<ul class="panel-tool-options"> 
 								<li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
 								<li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
@@ -192,37 +192,35 @@
 											<th>ID</th>
 											<th>Asset ID tag</th>
 											<th>Serial</th>
-											<th>cost</th>
+											<th>Cost</th>
 											<th>model</th>
 											<th>Manufacturer</th>
 											<th>Location</th>
 											<th>Purchase Date</th>
-											<th>date created</th>
+											<th>Date Created</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr class="gradeX">
-											<?php
-												$sql = "SELECT * FROM assets";
-												$result = $conn->query($sql);
+										<?php
+											$sql = "SELECT * FROM assets";
+											$result = $conn->query($sql);
 
-												if ($result->num_rows > 0)
+											if ($result->num_rows > 0)
+											{
+												while($row = $result->fetch_assoc())
 												{
-													while($row = $result->fetch_assoc())
-													{
-														echo "<tr><td>" . $row["id"] . "</td><td>" . 
-																		  $row["assettagid"] . "</td><td>" . 
-																		  $row["serialnumber"] . "</td><td>" .
-																		  $row["cost"] . "</td><td>" .
-																		  $row["model"] . "</td><td>" .
-																		  $row["manufacturer"] . "</td><td>" .
-																		  $row["location"] . "</td><td>" .
-																		  $row["purchasedate"] . "</td><td>" . 
-																		  $row["datecreated"] . "</td></tr>";
-													}
+													echo "<tr><td>" . $row["id"] . "</td><td>" . 
+																	  $row["assettagid"] . "</td><td>" . 
+																	  $row["serialnumber"] . "</td><td>" .
+																	  $row["cost"] . "</td><td>" .
+																	  $row["model"] . "</td><td>" .
+																	  $row["manufacturer"] . "</td><td>" .
+																	  $row["location"] . "</td><td>" .
+																	  $row["purchasedate"] . "</td><td>" . 
+																	  $row["datecreated"] . "</td></tr>";
 												}
-											?>
-										</tr>
+											}
+										?>
 									</tbody>
 								</table>
 							</div>

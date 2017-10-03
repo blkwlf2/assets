@@ -1,4 +1,7 @@
-﻿﻿<?php require("php/index_functions.php"); ?>
+﻿﻿<?php
+	require("php/global.php");
+	require("php/index_functions.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
