@@ -51,4 +51,65 @@ class message_list implements exportable
 	}
 }
 
+class typical_dropdown implements exportable
+{
+	private $item_link = array("#","#","#");
+	private $item_icon = array("arrows-ccw","list","chart-pie");
+	private $item_label = array("Update data","Detailed log","Statistics");
+	private $item_count = 3;
+	
+	private $item_divider = array();
+	private $item_divider_count = 0;
+	
+	function clear()
+	{
+		unset($this->item_link);
+		unset($this->item_icon);
+		unset($this->item_label);
+		$this->item_link = array();
+		$this->item_icon = array();
+		$this->item_label = array();
+		$this->item_count = 0;
+	}
+	
+	function add_item($link, $icon, $label)
+	{
+		$this->item_count++;
+		array_push($this->item_link, $link);
+		array_push($this->item_icon, $icon);
+		array_push($this->item_label, $label);
+		return $this->item_count - 1;
+	}
+	
+	function add_divider()
+	{
+		$this->item_divider_count++;
+		array_push($this->item_divider, $this->item_count);
+		return $this->item_count;
+	}
+	
+	function export()
+	{
+		$out = "<li class=\"dropdown\">\r\n";
+		$out .= "<a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\" aria-expanded=\"false\"><i class=\"icon-cog icon-2x\"></i></a>\r\n";
+		$out .= "<ul class=\"dropdown-menu dropdown-menu-right\">\r\n";
+		
+		for ($i = 0; $i < $this->item_count; $i++)
+		{
+			for ($u = 0; $u < $this->item_divider_count; $u++)
+			{
+				if ($i == $this->item_divider[$u])
+				{
+					$out .= "<li class=\"divider\"></li>\r\n";
+				}
+			}
+			
+			$out .= "<li><a href=\"" . $this->item_link[$i] . "\"><i class=\"icon-" . $this->item_icon[$i] . "\"></i> " . $this->item_label[$i] . "</a></li>\r\n";
+		}
+		
+		$out .= "</ul>\r\n</li>\r\n";
+		echo $out;
+	}
+}
+
 ?>

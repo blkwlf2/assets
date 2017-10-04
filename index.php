@@ -44,6 +44,7 @@
 <!--[if lte IE 8]>
 	<script src="js/plugins/flot/excanvas.min.js"></script>
 <![endif]-->
+
 </head>
 <body>
 
@@ -161,16 +162,10 @@
 								<div class="panel-heading clearfix"> 
 									<div class="panel-title">Signups</div> 
 									<ul class="panel-tool-options"> 
-										<li class="dropdown">
-											<a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"><i class="icon-cog"></i></a>
-											<ul class="dropdown-menu dropdown-menu-right">
-												<li><a href="#"><i class="icon-arrows-ccw"></i> Update data</a></li>
-												<li><a href="#"><i class="icon-list"></i> Detailed log</a></li>
-												<li><a href="#"><i class="icon-chart-pie"></i> Statistics</a></li>
-												<li class="divider"></li>
-												<li><a href="#"><i class="icon-cancel"></i> Clear list</a></li>
-											</ul>
-										 </li>
+										<?php
+											$drop = new typical_dropdown();
+											$drop->export();
+										?>
 									</ul> 
 								</div> 
 								<!-- panel body --> 
@@ -193,16 +188,10 @@
 								<div class="panel-heading clearfix"> 
 									<div class="panel-title">Purchases in Fiscal Year</div> 
 									<ul class="panel-tool-options"> 
-										<li class="dropdown">
-											<a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"><i class="icon-cog"></i></a>
-											<ul class="dropdown-menu dropdown-menu-right">
-												<li><a href="#"><i class="icon-arrows-ccw"></i> Update data</a></li>
-												<li><a href="#"><i class="icon-list"></i> Detailed log</a></li>
-												<li><a href="#"><i class="icon-chart-pie"></i> Statistics</a></li>
-												<li class="divider"></li>
-												<li><a href="#"><i class="icon-cancel"></i> Clear list</a></li>
-											</ul>
-										 </li>
+										<?php
+											$drop = new typical_dropdown();
+											$drop->export();
+										?>
 									</ul>  
 								</div> 
 								<!-- panel body --> 
@@ -228,16 +217,10 @@
 									<small>by category</small>
 									<small>This chart will pull data of money spent per category; Lighitng, video, etc, based on the category the asset is put in when added in.
 									<ul class="panel-tool-options"> 
-										<li class="dropdown">
-											<a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"><i class="icon-cog icon-2x"></i></a>
-											<ul class="dropdown-menu dropdown-menu-right">
-												<li><a href="#"><i class="icon-arrows-ccw"></i> Update data</a></li>
-												<li><a href="#"><i class="icon-list"></i> Detailed log</a></li>
-												<li><a href="#"><i class="icon-chart-pie"></i> Statistics</a></li>
-												<li class="divider"></li>
-												<li><a href="#"><i class="icon-cancel"></i> Clear list</a></li>
-											</ul>
-										 </li>
+										<?php
+											$drop = new typical_dropdown();
+											$drop->export();
+										?>
 									</ul> 
 								</div> 
 								<!-- panel body --> 
@@ -252,22 +235,14 @@
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<div class="panel-group">
-					</div>
 					<div class="panel panel-default no-border">
 						<div class="panel-heading no-border clearfix"> 
 							<h2 class="panel-title">Latest Activities(This Includes; adding,updating, assets, events, new hires(future implementation)etc...</h2>
 							<ul class="panel-tool-options"> 
-								<li class="dropdown">
-									<a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"><i class="icon-cog icon-2x"></i></a>
-									<ul class="dropdown-menu dropdown-menu-right">
-										<li><a href="#"><i class="icon-arrows-ccw"></i> Update data</a></li>
-										<li><a href="#"><i class="icon-list"></i> Detailed log</a></li>
-										<li><a href="#"><i class="icon-chart-pie"></i> Statistics</a></li>
-										<li class="divider"></li>
-										<li><a href="#"><i class="icon-cancel"></i> Clear list</a></li>
-									</ul>
-								 </li>
+								<?php
+									$drop = new typical_dropdown();
+									$drop->export();
+								?>
 							</ul>
 						</div>	 
 						<div class="panel-body">
@@ -325,47 +300,15 @@
 						<button class="btn btn-primary btn-block btn-2x">SHOW MORE</button>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4">
-					<div class="panel panel-default">
-						<div class="panel-heading no-border clearfix"> 
-							<h2 class="panel-title">Events coming up</h2>
-							<ul class="panel-tool-options"> 
-								<li class="dropdown">
-									<a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"><i class="icon-cog icon-2x"></i></a>
-									<ul class="dropdown-menu dropdown-menu-right">
-										<li><a href="#"><i class="icon-arrows-ccw"></i>Add event</a></li>
-										<li><a href="#"><i class="icon-list"></i> Delete an Events</a></li>
-										<li><a href="#"><i class="icon-chart-pie"></i> Update an Event</a></li>
-									</ul>
-								 </li>
-							</ul> 
-						</div> 
-						<!-- panel body --> 
-						<div class="panel-body">
-						Events goes here, taken from database
-							<div class="more">
-								<button class="btn btn-primary">Click More</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
+				<div class="col-lg-6">
 					<div class="panel panel-default">
 						<div class="panel-heading no-border clearfix"> 
 							<h2 class="panel-title">New Messages</h2>
 							<ul class="panel-tool-options"> 
-								<li class="dropdown">
-									<a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"><i class="icon-cog icon-2x"></i></a>
-									<ul class="dropdown-menu dropdown-menu-right">
-										<li><a href="#"><i class="icon-arrows-ccw"></i> Update data</a></li>
-										<li><a href="#"><i class="icon-list"></i> Detailed log</a></li>
-										<li><a href="#"><i class="icon-chart-pie"></i> Statistics</a></li>
-										<li class="divider"></li>
-										<li><a href="#"><i class="icon-cancel"></i> Clear list</a></li>
-									</ul>
-								 </li>
+								<?php
+									$drop = new typical_dropdown();
+									$drop->export();
+								?>
 							</ul> 
 						</div> 
 						<!-- panel body --> 
@@ -378,6 +321,33 @@
 										<p>This will be a list off messages that people send from tf visuals.com, instead of sending through E-Mail. This can be implemented later.</p>
 									</div>
 								</li>
+							</ul>
+							<div class="more">
+								<button class="btn btn-primary">Click More</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="panel panel-default">
+						<div class="panel-heading no-border clearfix"> 
+							<h2 class="panel-title">Events coming up</h2>
+							<ul class="panel-tool-options"> 
+								 <?php
+									$drop = new typical_dropdown();
+									$drop->clear();
+									$drop->add_item("#","arrows-ccw","Add event");
+									$drop->add_item("#","list","Delete an event");
+									$drop->add_item("#","chart-pie","Update an event");
+									$drop->export();
+								 ?>
+							</ul> 
+						</div> 
+						<!-- panel body --> 
+						<div class="panel-body">
+							Events goes here, taken from database
 							<div class="more">
 								<button class="btn btn-primary">Click More</button>
 							</div>
