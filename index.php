@@ -64,12 +64,12 @@
 		
 		<!-- Main navigation -->
 		<ul id="side-nav" class="main-menu navbar-collapse collapse">
-			<li class="has-sub active"><a href="index.php"><i class="icon-gauge"></i><span class="title">Dashboard</span></a>
-				<ul class="nav">
-					<li class="active"><a href="index.php"><span class="title">Home</span></a></li>
-					<li><a href="assets.php"><span class="title">Assets</span></a></li>
-				</ul>
-			</li>
+			<li class="active"><a href="index.php"><i class="icon-gauge"></i><span class="title">Dashboard</span></a></li>
+			<li><a href="assets.php"><i class="icon-camera"></i><span class="title">Assets</span></a></li>
+			<li><a href="#"><i class="icon-clock"></i><span class="title">Activity</span></a></li>
+			<li><a href="#"><i class="icon-calendar"></i><span class="title">Events</span></a></li>
+			<li><a href="#"><i class="icon-chart-area"></i><span class="title">Finances</span></a></li>
+			<li><a href="#"><i class="icon-user-add"></i><span class="title">Hiring</span></a></li>
 		</ul>
 		<!-- /main navigation -->		
   </div>
@@ -213,9 +213,8 @@
 						<div class="col-lg-12">
 							<div class="panel panel-default">
 								<div class="panel-heading no-border clearfix"> 
-									<h3 class="panel-title">Asset Value</h3><br>
-									<small>by category</small>
-									<small>This chart will pull data of money spent per category; Lighitng, video, etc, based on the category the asset is put in when added in.
+									<h3 class="panel-title">Asset Value by Category</h3><br>
+									<small>This chart will pull data of money spent per category; Lighting, Video, and et cetera; based on the category the asset is put in when added.
 									<ul class="panel-tool-options"> 
 										<?php
 											$drop = new typical_dropdown();
@@ -237,61 +236,37 @@
 				<div class="col-lg-6">
 					<div class="panel panel-default no-border">
 						<div class="panel-heading no-border clearfix"> 
-							<h2 class="panel-title">Latest Activities(This Includes; adding,updating, assets, events, new hires(future implementation)etc...</h2>
+							<h2 class="panel-title">Latest Activities</h2> <!--(This Includes; adding, updating, assets, events, new hires(future implementation), etc...-->
 							<ul class="panel-tool-options"> 
 								<?php
 									$drop = new typical_dropdown();
 									$drop->export();
 								?>
 							</ul>
-						</div>	 
+						</div>
 						<div class="panel-body">
 							<ul class="list-item">
 								<li>
 									<div class="feed-element">
-										<div class="feed-head"><a href="#/">Jassica</a> commented on <a href="#/">4 keys to make your business unique</a></div>
-										<div class="feed-content">
-											<p>Thank you for posting such a wonderful content. The writing was outstanding. Subscribed to latest from you as well :)</p>
-										</div>	
+										<div class="feed-head"><a href="#/">Buster</a> hired on as <a href="https://en.wikipedia.org/wiki/Bob_Dole">Bob Dole</a></div>
+										<div class="feed-content">										
+											<img class="pull-left img-circle avatar" src="images/busterdash.png" alt="">
+										</div>
 									</div>
 								</li>
 								<li>
 									<div class="feed-element">
-										<div class="feed-head"><a href="#/">Jassica</a> commented on <a href="#/">4 keys to make your business unique</a></div>
+										<div class="feed-head"><a href="#/">Ty</a> added an event: <a href="https://www.google.com/search?q=Skr8sfo+EDM+SuproToyotaDupeo">Skr8sfo EDM SuproToyotaDupeo</a></div>
 										<div class="feed-content">
-											<p>Thank you for posting such a wonderful content. The writing was outstanding. Subscribed to latest from you as well :)</p>
-										</div>	
+											<img class="pull-left img-circle avatar" src="images/alex-dolgove.png" alt="">
+										</div>
 									</div>
 								</li>
 								<li>
 									<div class="feed-element">
-										<div class="feed-head"><a href="#/">Morrise</a> added 3 new photos to the gallery <a href="#/">Australia Trip</a></div>
+										<div class="feed-head"><a href="#/">Ty</a> added new asset: <a href="https://www.google.com/search?q=Lightmeister+500">Lightmeister 500</a></div>
 										<div class="feed-content">
-											<div class="media-inline">
-												<img src="images/media-1.jpg" alt="Media" title="Media">
-												<img src="images/media-2.jpg" alt="Media" title="Media">
-												<img src="images/media-3.jpg" alt="Media" title="Media">
-											</div>
-										</div>	
-									</div>
-								</li>
-								<li>
-									<div class="feed-element">
-										<div class="feed-head"><a href="#/">Stella Johnson</a> is now connected with <a href="#/">Tom Brown</a></div>
-										<div class="feed-content">
-											<div class="connected-users">
-												<img class="pull-left img-circle avatar" src="images/stella-johnson.png" alt="">
-												<i class="pull-left icon-shareable icon-2x"></i>
-												<img class="pull-left img-circle avatar" src="images/man-3.jpg" alt="">
-											</div>
-										</div>	
-									</div>
-								</li>
-								<li>
-									<div class="feed-element">
-										<div class="feed-head"><a href="#/">Domnic</a> is feeling <a href="#/">blessed</a></div>
-										<div class="feed-content">
-											<p>Today I’m blessed with a baby girl. Its not easy to express the feelings :)</p>
+											Serial number: 8675309; Cost: $3.50; Location: Fargo, ND; Manufacturer: Adobe; Date: 10-03-2017
 										</div>	
 									</div>
 								</li>
@@ -318,7 +293,7 @@
 									<i class="icon-mail icon-2x"></i>
 									<div class="message-body">
 										<h5>Messages people send from tfvisuals.com main site</h5>
-										<p>This will be a list off messages that people send from tf visuals.com, instead of sending through E-Mail. This can be implemented later.</p>
+										<p>This will be a list of messages that people send from tfvisuals.com, instead of sending through E-Mail. This can be implemented later.</p>
 									</div>
 								</li>
 							</ul>
@@ -328,12 +303,10 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
 				<div class="col-lg-6">
 					<div class="panel panel-default">
 						<div class="panel-heading no-border clearfix"> 
-							<h2 class="panel-title">Events coming up</h2>
+							<h2 class="panel-title">Upcoming Events</h2>
 							<ul class="panel-tool-options"> 
 								 <?php
 									$drop = new typical_dropdown();
@@ -347,7 +320,7 @@
 						</div> 
 						<!-- panel body --> 
 						<div class="panel-body">
-							Events goes here, taken from database
+							Events go here, taken from database
 							<div class="more">
 								<button class="btn btn-primary">Click More</button>
 							</div>
@@ -355,6 +328,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<!-- Footer -->
 			<footer class="footer-main"> 
 				&copy; 2017 <strong>TF Visuals</strong> -Asset Management-
@@ -460,9 +434,9 @@
 			$pie = new pie_graph_data("doughnutData");
 			
 						 //Data, Color,		Highlight, Label
-			$pie->add_item(5742, "#22b66f", "#12a65f", "Only Visited");
-			$pie->add_item(2496, "#f3c111", "#e7b505", "Purchased");
-			$pie->add_item(1762, "#ef193c", "#e81235", "Bounced");
+			$pie->add_item(5742, "#22b66f", "#12a65f", "Video");
+			$pie->add_item(2496, "#f3c111", "#e7b505", "Lighting");
+			$pie->add_item(1762, "#ef193c", "#e81235", "Poop-Shit");
 			
 			$pie->export();
 			
