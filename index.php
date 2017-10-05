@@ -1,6 +1,22 @@
-﻿﻿<?php
+﻿<?php
+
 	require("php/global.php");
-	require("php/index_functions.php");
+	require("php/index_functions.php"); 
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "changeme";
+	$dbname = "tfvisuals";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	
+	// Check connection
+	if ($conn->connect_error)
+	{
+		die("Connection failed: " . $conn->connect_error);
+	}
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -171,56 +187,40 @@
 								<div class="panel-body">
 									<div class="row col-with-divider">
 										<div class="col-xs-6 text-center stack-order"> 
-											<h1 class="no-margins"><?php
-$mysqli = new mysqli("localhost", "root", "changeme", "tfvisuals");
+											<h1 class="no-margins">
+												<?php
+													//Query to get amount of assets.
+													if ($result = $conn->query("SELECT id FROM assets ORDER BY id"))
+													{
+														$row_cnt = $result->num_rows;
+														echo $row_cnt;
+														$result->close();
+													}
 
-/* check connection */
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
-
-if ($result = $mysqli->query("SELECT id FROM assets ORDER BY id")) {
-
-    /* determine number of rows result set */
-    $row_cnt = $result->num_rows;
-
-    printf("%d\n", $row_cnt);
-
-    /* close result set */
-    $result->close();
-}
-
-/* close connection */
-$mysqli->close();
-?></h1>
+												?>
+											</h1>
 											<small># of assets</small>
 										</div>
 										<div class="col-xs-6 text-center stack-order"> 
-											<h1 class="no-margins"> <?php $servername = "localhost";
-$username = "root";
-$password = "changeme";
-$dbname = "tfvisuals";
+											<h1 class="no-margins">
+												<?php
+													//Query to get cost of assets.
+													$sql = "SELECT SUM(cost) AS value_sum FROM assets LIMIT 1";
+													$result = $conn->query($sql);
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+													if ($result->num_rows > 0)
+													{
+														$row = $result->fetch_assoc();
+														echo "$" . $row["value_sum"];
+													}
+													else
+													{
+														echo "0 results";
+													}
 
-$sql = "SELECT SUM(cost) AS value_sum FROM assets limit 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "$" . $row["value_sum"];
-    }
-} else {
-    echo "0 results";
-}
-$conn->close(); ?></h1>
+													$conn->close();
+												?>
+											</h1>
 											<small>Value of Assets</small>
 										</div>
 									</div>
