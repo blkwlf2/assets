@@ -135,6 +135,8 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="row">
+						
+						<!-- Asset information panel -->
 						<div class="col-md-6">
 							<div class="panel minimal panel-default">
 								<div class="panel-heading clearfix"> 
@@ -145,8 +147,7 @@
 											$drop->export_gear();
 										?>
 									</ul> 
-								</div> 
-								<!-- panel body --> 
+								</div>
 								<div class="panel-body">
 									<div class="row col-with-divider">
 										<div class="col-xs-6 text-center stack-order"> 
@@ -188,6 +189,9 @@
 								</div> 
 							</div>
 						</div>
+						<!-- /asset information panel-->
+						
+						<!-- Purchases panel -->
 						<div class="col-md-6">
 							<div class="panel minimal panel-default">
 								<div class="panel-heading clearfix"> 
@@ -199,7 +203,6 @@
 										?>
 									</ul>  
 								</div> 
-								<!-- panel body --> 
 								<div class="panel-body"> 
 									<div class="stack-order">
 										<h1 class="no-margins">$$$$$</h1>
@@ -209,11 +212,11 @@
 								</div> 
 							</div>
 						</div>
+						<!-- /purchases panel -->
+						
 					</div>
-					<div class="row">
-					</div>
-					<div class="row">
-					</div>
+					
+					<!-- Pie chart panel -->
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="panel panel-default">
@@ -225,21 +228,24 @@
 											$drop = new typical_dropdown();
 											$drop->export_gear();
 										?>
-									</ul> 
-								</div> 
-								<!-- panel body --> 
+									</ul>
+								</div>
 								<div class="panel-body"> 
 									<div class="canvas-chart has-doughnut-legend">
 										<canvas id="doughnutChart" width="408" height="300"></canvas>
 									</div>
 									<div class="height-13"></div>
-								</div> 
+								</div>
 							</div>
 						</div>
 					</div>
+					<!-- /pie chart panel -->
+					
 				</div>
+				
+				<!-- Latest activities panel -->
 				<div class="col-lg-6">
-					<div class="panel panel-default no-border">
+					<div class="panel panel-default">
 						<div class="panel-heading no-border clearfix"> 
 							<h2 class="panel-title">Latest Activities</h2> <!--(This Includes; adding, updating, assets, events, new hires(future implementation), etc...-->
 							<ul class="panel-tool-options"> 
@@ -280,6 +286,9 @@
 						<button class="btn btn-primary btn-block btn-2x">SHOW MORE</button>
 					</div>
 				</div>
+				<!-- /latest activities panel -->
+				
+				<!-- New messages panel -->
 				<div class="col-lg-6">
 					<div class="panel panel-default">
 						<div class="panel-heading no-border clearfix"> 
@@ -308,6 +317,9 @@
 						</div>
 					</div>
 				</div>
+				<!-- /new messages panel -->
+				
+				<!-- Upcoming events panel -->
 				<div class="col-lg-6">
 					<div class="panel panel-default">
 						<div class="panel-heading no-border clearfix"> 
@@ -332,7 +344,10 @@
 						</div>
 					</div>
 				</div>
+				<!-- /upcoming events panel -->
+				
 			</div>
+			<!-- /.row -->
 			
 			<!-- Footer -->
 			<?php
@@ -365,7 +380,7 @@
 <script src="js/functions.js"></script>
 <!--ChartJs-->
 <script src="js/plugins/chartjs/Chart.min.js"></script>
-
+<!--Implementation Specific-->
 <script>
 	$(document).ready(function () {
 		

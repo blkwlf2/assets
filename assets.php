@@ -225,7 +225,7 @@
 <script src="js/plugins/blockui-master/jquery-ui.js"></script>
 <script src="js/plugins/blockui-master/jquery.blockUI.js"></script>
 <script src="js/functions.js"></script>
-
+<!--Load Datatables-->
 <script src="js/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="js/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <script src="js/plugins/datatables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
@@ -234,6 +234,7 @@
 <script src="js/plugins/datatables/vfs_fonts.js"></script>
 <script src="js/plugins/datatables/extensions/Buttons/js/buttons.html5.js"></script>
 <script src="js/plugins/datatables/extensions/Buttons/js/buttons.colVis.js"></script>
+<!--Implementation Specific-->
 <script>
 	$(document).ready(function () {
 		$('.dataTables-example').DataTable({
