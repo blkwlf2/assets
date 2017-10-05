@@ -188,6 +188,7 @@
 				$page_header->export_footer();
 			?>	
 			<!-- /footer -->
+			
 		</div>
 		<!-- /main content -->
 	  
@@ -211,8 +212,11 @@
 		</div><!-- /.modal -->
 		<!-- /large modal-->
 
-	</div><!-- /main container -->  
-</div><!-- /page container -->
+	</div>
+	<!-- /main container -->  
+	
+</div>
+<!-- /page container -->
 
 <!--Load JQuery-->
 <script src="js/jquery.min.js"></script>
