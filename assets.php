@@ -18,7 +18,6 @@
 	}
 	
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,9 +177,9 @@
 						<div class="panel-heading clearfix">
 							<h3 class="panel-title">A BIG BAD TABLE</h3>
 							<ul class="panel-tool-options"> 
-								<li><div class="bs-example"><a href class="icon-pencil" data-toggle="modal" data-target="#modal-1"></a></li>
-								<li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
-								<li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+								<li><div class="bs-example"><a href class="icon-pencil" data-toggle="modal" data-target="#modal-1" title="Edit"></a></li>
+								<li><a data-rel="reload" href="#"><i class="icon-arrows-ccw" title="Reload"></i></a></li>
+								<li><a data-rel="close" href="#"><i class="icon-cancel" title="Close"></i></a></li>
 							</ul>
 						</div>
 						<div class="panel-body">
