@@ -54,6 +54,13 @@ class page_header implements exportable
 		echo "</head>\r\n<body>\r\n";
 	}
 	
+	function export_footer()
+	{
+		echo "<footer class=\"footer-main\">\r\n"; 
+		echo "&copy; 2017 <strong>TF Visuals</strong> -Asset Management-\r\n";
+		echo "</footer>\r\n";
+	}
+	
 	function export_end()
 	{
 		echo "</body>\r\n</html>\r\n";

@@ -331,9 +331,9 @@
 			</div>
 			
 			<!-- Footer -->
-			<footer class="footer-main"> 
-				&copy; 2017 <strong>TF Visuals</strong> -Asset Management-
-			</footer>	
+			<?php
+				$page_header->export_footer();
+			?>
 			<!-- /footer -->
 		
 	  </div>
