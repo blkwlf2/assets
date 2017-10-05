@@ -363,82 +363,18 @@
 <script src="js/plugins/flot/jquery.flot.pie.min.js"></script>
 <script src="js/plugins/flot/jquery.flot.time.min.js"></script>
 <script src="js/functions.js"></script>
-
 <!--ChartJs-->
 <script src="js/plugins/chartjs/Chart.min.js"></script>
+
 <script>
 	$(document).ready(function () {
-		var $checkbox = $('.todo-list .checkbox input[type=checkbox]');
-
-		$checkbox.change(function () {
-			if ($(this).is(':checked')) {
-				$(this).parent().addClass('checked');
-			} else {
-				$(this).parent().removeClass('checked');
-			}
-		});
-
-		$checkbox.each(function (index) {
-			if ($(this).is(':checked')) {
-				$(this).parent().addClass('checked');
-			} else {
-				$(this).parent().removeClass('checked');
-			}
-		});
-
-		// charts
-		var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-		var previousPoint = null;
-		$('#graph-bars, #graph-lines').bind('plothover', function (event, pos, item) {
-			if (item) {
-				if (previousPoint != item.dataIndex) {
-					previousPoint = item.dataIndex;
-					$('#flotTip').remove();
-					var x = item.datapoint[0],
-							y = item.datapoint[1];
-
-					var color = item.series.color;
-					var day = new Date(x).getDate();
-					var month = monthNames[new Date(x).getMonth()];
-					var year = new Date(x).getFullYear();
-					showTooltip(item.pageX,
-							item.pageY,
-							day + ' ' + month + ',' + year
-							+ " : <strong>" + y +
-							" visitors</strong>");
-
-					/*content = item.series.label + ' = ' + item.datapoint[1];
-					 showTooltip(item.pageX, item.pageY, content);
-					 showTooltip(item.pageX, item.pageY, y + ' visitors at ' + x + '.00h');*/
-
-				}
-			} else {
-				$('#flotTip').remove();
-				previousPoint = null;
-			}
-		});
-
-		var graphData = [{
-				// Visits
-				data: [[1196463600000, 45], [1196550000000, 30], [1196636400000, 98], [1196722800000, 37], [1196809200000, 95], [1196895600000, 45], [1196982000000, 65],
-					[1197068400000, 120], [1197154800000, 90], [1197241200000, 65], [1197327600000, 50]],
-				color: '#ef193c'
-			}, {
-				// Returning Visits
-				data: [[1196463600000, 100], [1196550000000, 170], [1196636400000, 260], [1196722800000, 127], [1196809200000, 240], [1196895600000, 180], [1196982000000, 160],
-					[1197068400000, 210], [1197154800000, 270], [1197241200000, 120], [1197327600000, 85]],
-				color: '#2196d4',
-			}
-		];
-		// Bars
-
+		
 		<?php
 			
 			//Pie graph data generation.
 			$pie = new pie_graph_data("doughnutData");
 			
-						 //Data, Color,		Highlight, Label
+			//Data, Color, Highlight, Label
 			$pie->add_item(5742, "#22b66f", "#12a65f", "Video");
 			$pie->add_item(2496, "#f3c111", "#e7b505", "Lighting");
 			$pie->add_item(1762, "#ef193c", "#e81235", "Poop-Shit");
@@ -457,16 +393,15 @@
 			animateRotate: true,
 			animateScale: false,
 			responsive: true,
-			//String - A legend template
 			legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
 		};
 
 		var canvas = document.getElementById("doughnutChart");
 		var helpers = Chart.helpers;
-		//var ctx = document.getElementById("doughnutChart").getContext("2d");
 		var moduleDoughnut = new Chart(canvas.getContext("2d")).Doughnut(doughnutData, doughnutOptions);
 		var legendHolder = document.createElement('div');
 		legendHolder.innerHTML = moduleDoughnut.generateLegend();
+		
 		helpers.each(legendHolder.firstChild.childNodes, function (legendNode, index) {
 			helpers.addEvent(legendNode, 'mouseover', function () {
 				var activeSegment = moduleDoughnut.segments[index];
@@ -476,9 +411,11 @@
 				activeSegment.restore();
 			});
 		});
+		
 		helpers.addEvent(legendHolder.firstChild, 'mouseout', function () {
 			moduleDoughnut.draw();
 		});
+		
 		canvas.parentNode.parentNode.appendChild(legendHolder.firstChild);
 	});
 </script>
