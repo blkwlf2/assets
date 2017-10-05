@@ -76,14 +76,7 @@
 		<!-- /site header -->
 		
 		<!-- Main navigation -->
-		<ul id="side-nav" class="main-menu navbar-collapse collapse">
-			<li><a href="index.php"><i class="icon-gauge"></i><span class="title">Dashboard</span></a></li>
-			<li class="active"><a href="assets.php"><i class="icon-camera"></i><span class="title">Assets</span></a></li>
-			<li><a href="activity.php"><i class="icon-clock"></i><span class="title">Activity</span></a></li>
-			<li><a href="events.php"><i class="icon-calendar"></i><span class="title">Events</span></a></li>
-			<li><a href="finances.php"><i class="icon-chart-area"></i><span class="title">Finances</span></a></li>
-			<li><a href="hiring.php"><i class="icon-user-add"></i><span class="title">Hiring</span></a></li>
-		</ul>
+		<?php quick_nav(); /*Navigation can be modified at php/global.php*/ ?>
 		<!-- /main navigation -->
   </div>
   <!-- /page sidebar -->

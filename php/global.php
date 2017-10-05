@@ -5,6 +5,57 @@ interface exportable
 	function export();
 }
 
+function quick_nav()
+{
+	$nav = new navigation();
+	$nav->add_nav_item("Dashboard","gauge","/index.php");
+	$nav->add_nav_item("Assets","camera","/assets.php");
+	$nav->add_nav_item("Activity","clock","#");
+	$nav->add_nav_item("Events","calendar","#");
+	$nav->add_nav_item("Finances","chart-area","#");
+	$nav->add_nav_item("Hiring","user-add","#");
+	$nav->export();
+}
+
+class navigation implements exportable
+{
+	private $nav_item_name = array();
+	private $nav_item_link = array();
+	private $nav_item_icon = array();
+	private $nav_item_count = 0;
+	
+	function add_nav_item($name, $icon, $link)
+	{
+		$this->nav_item_count++;
+		array_push($this->nav_item_name, $name);
+		array_push($this->nav_item_icon, $icon);
+		array_push($this->nav_item_link, $link);
+		return $this->nav_item_count - 1;
+	}
+	
+	function export()
+	{
+		$out = "<ul id=\"side-nav\" class=\"main-menu navbar-collapse collapse\">\r\n";
+		
+		for ($i = 0; $i < $this->nav_item_count; $i++)
+		{
+			$set_active = "";
+			
+			if ($_SERVER["PHP_SELF"] == $this->nav_item_link[$i])
+			{
+				$set_active = " class=\"active\"";
+			}
+		
+			$out .= "<li" . $set_active . "><a href=\"" . $this->nav_item_link[$i] . "\">";
+			$out .= "<i class=\"icon-" . $this->nav_item_icon[$i] . "\"></i>";
+			$out .= "<span class=\"title\">" . $this->nav_item_name[$i] . "</span></a></li>\r\n";
+		}
+		
+		$out .= "</ul>\r\n";
+		echo $out;
+	}
+}
+
 class message_list implements exportable
 {
 	private $item_name = array();
