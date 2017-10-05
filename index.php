@@ -2,7 +2,6 @@
 	require("php/global.php");
 	require("php/index_functions.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,10 +65,10 @@
 		<ul id="side-nav" class="main-menu navbar-collapse collapse">
 			<li class="active"><a href="index.php"><i class="icon-gauge"></i><span class="title">Dashboard</span></a></li>
 			<li><a href="assets.php"><i class="icon-camera"></i><span class="title">Assets</span></a></li>
-			<li><a href="#"><i class="icon-clock"></i><span class="title">Activity</span></a></li>
-			<li><a href="#"><i class="icon-calendar"></i><span class="title">Events</span></a></li>
-			<li><a href="#"><i class="icon-chart-area"></i><span class="title">Finances</span></a></li>
-			<li><a href="#"><i class="icon-user-add"></i><span class="title">Hiring</span></a></li>
+			<li><a href="activity.php"><i class="icon-clock"></i><span class="title">Activity</span></a></li>
+			<li><a href="events.php"><i class="icon-calendar"></i><span class="title">Events</span></a></li>
+			<li><a href="finances.php"><i class="icon-chart-area"></i><span class="title">Finances</span></a></li>
+			<li><a href="hiring.php"><i class="icon-user-add"></i><span class="title">Hiring</span></a></li>
 		</ul>
 		<!-- /main navigation -->		
   </div>
@@ -160,7 +159,7 @@
 						<div class="col-md-6">
 							<div class="panel minimal panel-default">
 								<div class="panel-heading clearfix"> 
-									<div class="panel-title">Signups</div> 
+									<div class="panel-title">Asset Information</div> 
 									<ul class="panel-tool-options"> 
 										<?php
 											$drop = new typical_dropdown();
@@ -172,11 +171,56 @@
 								<div class="panel-body">
 									<div class="row col-with-divider">
 										<div class="col-xs-6 text-center stack-order"> 
-											<h1 class="no-margins">#</h1>
+											<h1 class="no-margins"><?php
+$mysqli = new mysqli("localhost", "root", "changeme", "tfvisuals");
+
+/* check connection */
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
+
+if ($result = $mysqli->query("SELECT id FROM assets ORDER BY id")) {
+
+    /* determine number of rows result set */
+    $row_cnt = $result->num_rows;
+
+    printf("%d\n", $row_cnt);
+
+    /* close result set */
+    $result->close();
+}
+
+/* close connection */
+$mysqli->close();
+?></h1>
 											<small># of assets</small>
 										</div>
 										<div class="col-xs-6 text-center stack-order"> 
-											<h1 class="no-margins">#</h1>
+											<h1 class="no-margins"> <?php $servername = "localhost";
+$username = "root";
+$password = "changeme";
+$dbname = "tfvisuals";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT SUM(cost) AS value_sum FROM assets limit 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "$" . $row["value_sum"];
+    }
+} else {
+    echo "0 results";
+}
+$conn->close(); ?></h1>
 											<small>Value of Assets</small>
 										</div>
 									</div>

@@ -80,10 +80,10 @@
 		<ul id="side-nav" class="main-menu navbar-collapse collapse">
 			<li><a href="index.php"><i class="icon-gauge"></i><span class="title">Dashboard</span></a></li>
 			<li class="active"><a href="assets.php"><i class="icon-camera"></i><span class="title">Assets</span></a></li>
-			<li><a href="#"><i class="icon-clock"></i><span class="title">Activity</span></a></li>
-			<li><a href="#"><i class="icon-calendar"></i><span class="title">Events</span></a></li>
-			<li><a href="#"><i class="icon-chart-area"></i><span class="title">Finances</span></a></li>
-			<li><a href="#"><i class="icon-user-add"></i><span class="title">Hiring</span></a></li>
+			<li><a href="activity.php"><i class="icon-clock"></i><span class="title">Activity</span></a></li>
+			<li><a href="events.php"><i class="icon-calendar"></i><span class="title">Events</span></a></li>
+			<li><a href="finances.php"><i class="icon-chart-area"></i><span class="title">Finances</span></a></li>
+			<li><a href="hiring.php"><i class="icon-user-add"></i><span class="title">Hiring</span></a></li>
 		</ul>
 		<!-- /main navigation -->
   </div>
@@ -178,7 +178,7 @@
 						<div class="panel-heading clearfix">
 							<h3 class="panel-title">A BIG BAD TABLE</h3>
 							<ul class="panel-tool-options"> 
-								<li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+								<li><div class="bs-example"><a href class="icon-pencil" data-toggle="modal" data-target="#modal-1"></a></li>
 								<li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
 								<li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
 							</ul>
@@ -230,11 +230,31 @@
 			
 			<!-- Footer -->
 			<footer class="footer-main"> 
-				&copy; 2016 <strong>Mouldifi</strong> Admin Theme by <a target="_blank" href="#/">G-axon</a> 
+				&copy; 2017 <strong>Mouldifi</strong> Admin Theme by <a target="_blank" href="#/">G-axon</a> 
 			</footer>	
 			<!-- /footer -->
 		
 	  </div>
+	  
+<!--Large Modal-->
+<div id="modal-1" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Large modal</h4>
+      </div>
+      <div class="modal-body">
+        <p>This is a test</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--End Large Modal-->
 	  <!-- /main content -->
 	  
   </div>
