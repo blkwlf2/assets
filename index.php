@@ -17,51 +17,15 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 	
+	//<!DOCTYPE> and stuff are created in this class.
+	$page_header = new page_header("Dashboard");
+	$page_header->add_stylesheet("css/entypo.css");
+	$page_header->add_stylesheet("css/font-awesome.min.css");
+	$page_header->add_stylesheet("css/bootstrap.min.css");
+	$page_header->add_stylesheet("css/mouldifi-core.css");
+	$page_header->add_stylesheet("css/mouldifi-forms.css");
+	$page_header->export();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mouldifi - A fully responsive, HTML5 based admin theme">
-<meta name="keywords" content="Responsive, HTML5, admin theme, business, professional, Mouldifi, web design, CSS3">
-<title>TF Visuals | Dashboard</title>
-<!-- Site favicon -->
-<link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
-<!-- /site favicon -->
-
-<!-- Entypo font stylesheet -->
-<link href="css/entypo.css" rel="stylesheet">
-<!-- /entypo font stylesheet -->
-
-<!-- Font awesome stylesheet -->
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<!-- /font awesome stylesheet -->
-
-<!-- Bootstrap stylesheet min version -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<!-- /bootstrap stylesheet min version -->
-
-<!-- Mouldifi core stylesheet -->
-<link href="css/mouldifi-core.css" rel="stylesheet">
-<!-- /mouldifi core stylesheet -->
-
-<link href="css/mouldifi-forms.css" rel="stylesheet">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-      <script src="js/respond.min.js"></script>
-<![endif]-->
-
-<!--[if lte IE 8]>
-	<script src="js/plugins/flot/excanvas.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
 
 <!-- Page container -->
 <div class="page-container">
@@ -95,15 +59,17 @@
 			  <li class="profile-info dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="" src="images/man-3.jpg">John Henderson <span class="caret"></span></a>
 			  
 				<!-- User action menu -->
-				<ul class="dropdown-menu">
-				  
-				  <li><a href="#/"><i class="icon-user"></i>My profile</a></li>
-				  <li><a href="#/"><i class="icon-mail"></i>Messages</a></li>
-				  <li><a href="#"><i class="icon-clipboard"></i>Tasks</a></li>
-				  <li class="divider"></li>
-				  <li><a href="#"><i class="icon-cog"></i>Account settings</a></li>
-				  <li><a href="#"><i class="icon-logout"></i>Logout</a></li>
-				</ul>
+				<?php
+					$drop = new typical_dropdown();
+					$drop->clear();
+					$drop->add_item("#","user","My profile");
+					$drop->add_item("#","mail","Messages");
+					$drop->add_item("#","clipboard","Tasks");
+					$drop->add_divider();
+					$drop->add_item("#","cog","Account settings");
+					$drop->add_item("#","logout","Logout");
+					$drop->export();
+				 ?>
 				<!-- /user action menu -->
 				
 			  </li>
@@ -172,7 +138,7 @@
 									<ul class="panel-tool-options"> 
 										<?php
 											$drop = new typical_dropdown();
-											$drop->export();
+											$drop->export_gear();
 										?>
 									</ul> 
 								</div> 
@@ -225,7 +191,7 @@
 									<ul class="panel-tool-options"> 
 										<?php
 											$drop = new typical_dropdown();
-											$drop->export();
+											$drop->export_gear();
 										?>
 									</ul>  
 								</div> 
@@ -249,11 +215,11 @@
 							<div class="panel panel-default">
 								<div class="panel-heading no-border clearfix"> 
 									<h3 class="panel-title">Asset Value by Category</h3><br>
-									<small>This chart will pull data of money spent per category; Lighting, Video, and et cetera; based on the category the asset is put in when added.
+									<small>This chart will pull data of money spent per category; Lighting, Video, and et cetera; based on the category the asset is put in when added.</small>
 									<ul class="panel-tool-options"> 
 										<?php
 											$drop = new typical_dropdown();
-											$drop->export();
+											$drop->export_gear();
 										?>
 									</ul> 
 								</div> 
@@ -275,7 +241,7 @@
 							<ul class="panel-tool-options"> 
 								<?php
 									$drop = new typical_dropdown();
-									$drop->export();
+									$drop->export_gear();
 								?>
 							</ul>
 						</div>
@@ -317,7 +283,7 @@
 							<ul class="panel-tool-options"> 
 								<?php
 									$drop = new typical_dropdown();
-									$drop->export();
+									$drop->export_gear();
 								?>
 							</ul> 
 						</div> 
@@ -349,7 +315,7 @@
 									$drop->add_item("#","arrows-ccw","Add event");
 									$drop->add_item("#","list","Delete an event");
 									$drop->add_item("#","chart-pie","Update an event");
-									$drop->export();
+									$drop->export_gear();
 								 ?>
 							</ul> 
 						</div> 
@@ -512,9 +478,7 @@
 		canvas.parentNode.parentNode.appendChild(legendHolder.firstChild);
 	});
 </script>
-</body>
-</html>
-
 <?php
+	$page_header->export_end();
 	$conn->close();
 ?>

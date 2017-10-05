@@ -17,6 +17,49 @@ function quick_nav()
 	$nav->export();
 }
 
+class page_header implements exportable
+{
+	private $sub_title = "";
+	private $item_link = array();
+	private $item_count = 0;
+	
+	function __construct($subtitle)
+	{
+		$this->sub_title = $subtitle;
+	}
+	
+	function add_stylesheet($link)
+	{
+		$this->item_count++;
+		array_push($this->item_link, $link);
+		return $this->item_count - 1;
+	}
+	
+	function export()
+	{
+		echo "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n";
+		echo "<meta charset=\"utf-8\">\r\n";
+		echo "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n";
+		echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n";
+		echo "<meta name=\"description\" content=\"TF Visuals - Admin panel\">\r\n";
+		echo "<meta name=\"keywords\" content=\"TF Visuals, Video, Lighting, EDM\">\r\n";
+		echo "<title>TF Visuals | " . $this->sub_title . "</title>\r\n";
+		echo "<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"images/favicon.ico\" />\r\n";
+		
+		for ($i = 0; $i < $this->item_count; $i++)
+		{
+			echo "<link href=\"" . $this->item_link[$i] . "\" rel=\"stylesheet\" />\r\n";
+		}
+		
+		echo "</head>\r\n<body>\r\n";
+	}
+	
+	function export_end()
+	{
+		echo "</body>\r\n</html>\r\n";
+	}
+}
+
 class navigation implements exportable
 {
 	private $nav_item_name = array();
@@ -139,11 +182,9 @@ class typical_dropdown implements exportable
 		return $this->item_count;
 	}
 	
-	function export()
+	private function ex_dropdown()
 	{
-		$out = "<li class=\"dropdown\">\r\n";
-		$out .= "<a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\" aria-expanded=\"false\"><i class=\"icon-cog icon-2x\"></i></a>\r\n";
-		$out .= "<ul class=\"dropdown-menu dropdown-menu-right\">\r\n";
+		$out = "<ul class=\"dropdown-menu dropdown-menu-right\">\r\n";
 		
 		for ($i = 0; $i < $this->item_count; $i++)
 		{
@@ -158,7 +199,22 @@ class typical_dropdown implements exportable
 			$out .= "<li><a href=\"" . $this->item_link[$i] . "\"><i class=\"icon-" . $this->item_icon[$i] . "\"></i> " . $this->item_label[$i] . "</a></li>\r\n";
 		}
 		
-		$out .= "</ul>\r\n</li>\r\n";
+		$out .= "</ul>\r\n";
+		return $out;
+	}
+	
+	function export()
+	{
+		$out = $this->ex_dropdown();
+		echo $out;
+	}
+	
+	function export_gear()
+	{
+		$out = "<li class=\"dropdown\">\r\n";
+		$out .= "<a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\" aria-expanded=\"false\"><i class=\"icon-cog icon-2x\"></i></a>\r\n";
+		$out .= $this->ex_dropdown();
+		$out .= "</li>\r\n";
 		echo $out;
 	}
 }
