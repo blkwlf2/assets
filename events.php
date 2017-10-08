@@ -21,7 +21,7 @@
 	}
 	
 	//<!DOCTYPE> and stuff are created in this class.
-	$page_header = new page_header("Dashboard");
+	$page_header = new page_header("Events");
 	$page_header->add_stylesheet("css/entypo.css");
 	$page_header->add_stylesheet("css/font-awesome.min.css");
 	$page_header->add_stylesheet("css/bootstrap.min.css");
@@ -36,7 +36,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Mouldifi - A fully responsive, HTML5 based admin theme">
 <meta name="keywords" content="Responsive, HTML5, admin theme, business, professional, Mouldifi, web design, CSS3">
-<title>Mouldifi | Detailed View</title>
 <!-- Site favicon -->
 <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
 <!-- /site favicon -->
@@ -206,19 +205,16 @@
 	<div class="header-secondary row">
 		<div class="col-lg-12">
 			<div class="page-heading clearfix">
-				<h1 class="page-title pull-left">Users</h1><button class="btn btn-primary btn-sm btn-add">Add New</button>
+				<h1 class="page-title pull-left">Events</h1><button class="btn btn-primary btn-sm btn-add" data-toggle="modal" data-target="#modal-1">Add New</button>
 			</div>
 			<!-- Breadcrumb -->
 			<ol class="breadcrumb breadcrumb-2"> 
-				<li><a href="index.html"><i class="fa fa-home"></i>Home</a></li> 
-				<li><a href="short-view.html">Grid Views</a></li> 
-				<li class="active"><strong>Users</strong></li> 
+				<li><a href="index.php"><i class="fa fa-home"></i>Dashboard</a></li> 
+				<li class="active"><strong>Events</strong></li> 
 			</ol>
 			<div class="tab-wrapper clearfix">
 				<ul class="nav nav-pills nav-pills-default pull-left">
-				  <li role="presentation"><a href="short-view.html">STYLE 1</a></li>
-				  <li class="active" role="presentation"><a href="detailed-view.html">STYLE 2</a></li>
-				  <li role="presentation"><a href="detailed-view-2.html">STYLE 3</a></li>
+				  <li class="active" role="presentation"><a href="detailed-view.html">Detailed View</a></li>
 				</ul>
 				<ul class="nav nav-pills nav-icons pull-right">
 				  <li class="active" role="presentation"><a href="#"><i class="icon-layout"></i></a></li>
@@ -235,7 +231,7 @@
 		<div class="col-lg-12">
 			<div class="filter-header">
 				<button aria-label="Close" class="close toggle-filter" type="button" data-block-id="filter-box"><i class="icon-cancel"></i></button>
-				<h3 class="title">Filter Members</h3>
+				<h3 class="title">Filter Events</h3>
 			</div>
 			<form class="form-inline">
 				<div class="form-group">
@@ -243,27 +239,26 @@
 					<input type="text" placeholder="Separate by commas..." class="form-control">
 				</div>
 				<div class="form-group">
-					<label class="form-label">Member Since</label>
+					<label class="form-label">Events Since</label>
 					<select class="select2 form-control">
-						<option>2008</option>
-						<option>2009</option>
-						<option>2015</option>
+						<option>2017</option>
+						<option>2018</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<label class="form-label">User Roles</label>
+					<label class="form-label">Event Status</label>
 					<div class="checkbox-group">
 						<div class="checkbox checkbox-replace">
 							<input type="checkbox" id="admin">
-							<label for="admin">Admin</label>
+							<label for="admin">Active</label>
 						</div>
 						<div class="checkbox checkbox-replace">
 							<input type="checkbox" id="operator">
-							<label for="operator">Operator</label>
+							<label for="operator">Canceled</label>
 						</div>
 						<div class="checkbox checkbox-replace">
 							<input type="checkbox" id="customer">
-							<label for="customer">Customer</label>
+							<label for="customer">Pending</label>
 						</div>
 					</div>
 				</div>
@@ -289,9 +284,9 @@
 					</div>
 					<div class="col-selectbox">
 						<select class="form-control input-sm">
-							<option>Bulk Action</option>
-							<option>Bulk Action</option>
-							<option>Bulk Action</option>
+							<option>Complete</option>
+							<option>Canceled</option>
+							<option>Pending</option>
 						</select>&nbsp;
 						<button class="btn btn-primary btn-sm">Go</button>
 					</div>
@@ -299,16 +294,16 @@
 				<div class="data-col-last clearfix">
 					<div class="col-selectbox">
 						<select class="form-control input-sm">
-							<option>Sort By</option>
-							<option>Sort By</option>
-							<option>Sort By</option>
+							<option>Most Recent</option>
+							<option>Past</option>
+							<option>Today</option>
 						</select>
 					</div>
 					<div class="col-selectbox">
 						<select class="form-control input-sm">
-							<option>25 Records</option>
-							<option>10 Records</option>
-							<option>50 Records</option>
+							<option>5 Events</option>
+							<option>10 Events</option>
+							<option>20 Events</option>
 						</select>
 					</div>
 				</div>
@@ -316,7 +311,8 @@
 		</div>
 		<!-- /list header -->
 		
-		<!-- Card grid view -->
+		<!-- Card grid view --> 
+		<?php /* integrate PHP code to fetch data from database, "id, name, contactee, phone, email, dates, description" */ ?>
 		<div class="cards-container grid-view">
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">
@@ -714,7 +710,25 @@
   
 </div>
 <!-- /page container -->
-
+		<!--Large modal-->
+		<div id="modal-1" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Large modal</h4>
+					</div>
+					<div class="modal-body">
+						<p>This is a test</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<!-- /large modal-->
 <!--Load JQuery-->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
