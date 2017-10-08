@@ -11,7 +11,7 @@ function quick_nav()
 	$nav->add_nav_item("Dashboard","gauge","/index.php");
 	$nav->add_nav_item("Assets","camera","/assets.php");
 	$nav->add_nav_item("Activity","clock","#");
-	$nav->add_nav_item("Events","calendar","#");
+	$nav->add_nav_item("Events","calendar","events.php");
 	$nav->add_nav_item("Finances","chart-area","#");
 	$nav->add_nav_item("Hiring","user-add","#");
 	$nav->export();

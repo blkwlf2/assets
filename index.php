@@ -222,7 +222,7 @@
 							<div class="panel panel-default">
 								<div class="panel-heading no-border clearfix"> 
 									<h3 class="panel-title">Asset Value by Category</h3><br>
-									<small>This chart will pull data of money spent per category; Lighting, Video, and et cetera; based on the category the asset is put in when added.</small>
+									<small>This chart will pull data of money spent per category; Lighting, Video, and Poop-shit; based on the category the asset is put in when added.</small>
 									<ul class="panel-tool-options"> 
 										<?php
 											$drop = new typical_dropdown();
