@@ -26,7 +26,7 @@
 	$page_header->add_stylesheet("css/mouldifi-forms.css");
 	$page_header->export();
 ?>
-
+<script src="js/jquery.min.js"></script>
 <!-- Page container -->
 <div class="page-container">
 
@@ -278,33 +278,33 @@
 								?>
 							</ul>
 						</div>
-						<div class="panel-body">
-							<ul class="list-item">
-								<li>
-									<div class="feed-element">
-										<div class="feed-head"><a href="#/">Buster</a> hired on as <a href="https://en.wikipedia.org/wiki/Bob_Dole">Bob Dole</a></div>
-										<div class="feed-content">										
-											<img class="pull-left img-circle avatar" src="images/busterdash.png" alt="">
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="feed-element">
-										<div class="feed-head"><a href="#/">Ty</a> added an event: <a href="https://www.google.com/search?q=Skr8sfo+EDM+SuproToyotaDupeo">Skr8sfo EDM SuproToyotaDupeo</a></div>
-										<div class="feed-content">
-											<img class="pull-left img-circle avatar" src="images/alex-dolgove.png" alt="">
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="feed-element">
-										<div class="feed-head"><a href="#/">Ty</a> added new asset: <a href="https://www.google.com/search?q=Lightmeister+500">Lightmeister 500</a></div>
-										<div class="feed-content">
-											Serial number: 8675309; Cost: $3.50; Location: Fargo, ND; Manufacturer: Adobe; Date: 10-03-2017
-										</div>	
-									</div>
-								</li>
-							</ul>
+						<div class="panel-body" id="panel-body">
+						<?php
+//Sql Query To Fetch News Feed From Database
+	$servername = "localhost";
+	$username = "root";
+	$password = "changeme";
+	$dbname = "tfvisuals";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	
+	// Check connection
+	if ($conn->connect_error)
+	{
+		die("Connection failed: " . $conn->connect_error);
+	}
+$sql = "Select * from latest";
+$result = $result=mysqli_query($conn,$sql);
+while($row =  $result->fetch_assoc())
+{
+    echo("<div id='latest'>");
+    echo("<div class='comment-head'>" . $row['title'] . "</div>");
+    echo("<div class='comment-text'>" . $row['body'] . "</div>");
+	$drop->add_divider();
+    echo("</div>");
+}
+?>
 						</div>
 						<button class="btn btn-primary btn-block btn-2x">SHOW MORE</button>
 					</div>
@@ -388,7 +388,6 @@
 <!-- /page container -->
 
 <!--Load JQuery-->
-<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/plugins/metismenu/jquery.metisMenu.js"></script>
 <script src="js/plugins/blockui-master/jquery-ui.js"></script>

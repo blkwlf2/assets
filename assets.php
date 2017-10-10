@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 	require("php/global.php");
 	require("php/index_functions.php"); 
