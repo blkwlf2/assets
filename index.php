@@ -205,8 +205,31 @@
 								</div> 
 								<div class="panel-body"> 
 									<div class="stack-order">
-										<h1 class="no-margins">$$$$$</h1>
-										<small># of Purchases</small>
+										<h1 class="no-margins"><?php
+													//Query to get cost of assets.
+													$sql = "SELECT SUM(cost) AS value_sum FROM assets LIMIT 1";
+													$result = $conn->query($sql);
+
+													if ($result->num_rows > 0)
+													{
+														$row = $result->fetch_assoc();
+														echo "$" . $row["value_sum"];
+													}
+													else
+													{
+														echo "0 results";
+													}
+												?></h1>
+										<small><?php
+													//Query to get amount of assets.
+													if ($result = $conn->query("SELECT id FROM assets ORDER BY id"))
+													{
+														$row_cnt = $result->num_rows;
+														echo $row_cnt;
+														$result->close();
+													}
+
+												?> Purchases</small>
 									</div>
 									<div class="bar-chart-icon"></div>
 								</div> 

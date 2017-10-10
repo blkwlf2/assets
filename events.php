@@ -332,7 +332,7 @@
 							<!-- Card short description -->
 							<div class="card-short-description">
 								<h5><span class="user-name"><a href="#/">John Smith</a></span></h5>
-								<p class="uppercase">Agent</p>
+								<p class="uppercase">Active</p>
 							</div>
 							<!-- /card short description -->
 							
@@ -352,7 +352,7 @@
 						
 						<!-- Card content -->
 						<div class="card-content">
-							<p>Member Since 2008</p>
+							<p>Member Since 20017</p>
 							<p>Bio data about the user. It could contain what he does, who he is, and much more.</p>
  							<p>More could be listed here.</p>
 						</div>
@@ -378,8 +378,8 @@
 							
 							<!-- Card short description -->
 							<div class="card-short-description">
-								<h5><span class="user-name"><a href="#/">John Smith</a></span></h5>
-								<p class="uppercase">Agent</p>
+								<h5><span class="user-name"><a href="#/">Tyler Ford</a></span></h5>
+								<p class="uppercase">Cancelled</p>
 							</div>
 							<!-- /card short description -->
 							
@@ -399,7 +399,7 @@
 						
 						<!-- Card content -->
 						<div class="card-content">
-							<p>Member Since 2008</p>
+							<p>Member Since 2017</p>
 							<p>Bio data about the user. It could contain what he does, who he is, and much more.</p>
  							<p>More could be listed here.</p>
 						</div>
@@ -719,7 +719,7 @@
 						<h4 class="modal-title">Large modal</h4>
 					</div>
 					<div class="modal-body">
-						<p>This is a test</p>
+						<p>Add, Edit, Delete Events here</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
