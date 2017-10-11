@@ -319,381 +319,43 @@
 				
 					<!-- Card -->
 					<div class="card primary-view">
-					
 						<!-- Card header -->
 						<div class="card-header">
-						
-							<!-- Card photo -->
-							<div class="card-photo">
-								<img title="John Smith" alt="John Smith" src="images/man-3.jpg" class="img-circle avatar">
-							</div>
-							<!-- /card photo -->
+						<?php
+							//Sql Query To Fetch News Feed From Database
+							$sql = "Select * from events";
+							$result = $result=mysqli_query($conn,$sql);
 							
-							<!-- Card short description -->
-							<div class="card-short-description">
-								<h5><span class="user-name"><a href="#/">John Smith</a></span></h5>
-								<p class="uppercase">Active</p>
-							</div>
-							<!-- /card short description -->
-							
-							<!-- Card action dropdown -->
-							<div class="action-dropdown dropdown">
-								<a data-toggle="dropdown" href="#/" aria-expanded="true"><i class="icon-dot-3 icon-more"></i></a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li><a href="">Change Setting</a></li>
-									<li><a href="">View Profile</a></li>
-									<li><a href="">Send Message</a></li>
-								</ul>
-							</div>
-							<!-- /card action dropdown -->
-							
+							if ($result->num_rows > 0)
+								{
+									while($row =  $result->fetch_assoc())
+									{
+									echo("<div class='card-photo'>");
+									echo("<img title='John Smith' alt='John Smith' src='images/man-3.jpg' class='img-circle avatar'></div>");
+									echo("<div class='card-short-description'>");
+									echo("<span class='user-name'>" . $row['event']. "");
+									echo("<p class='uppercase'>" . $row['status']. "</div>");
+									echo("<div class='action-dropdown dropdown'>");
+									echo("<a data-toggle='dropdown' href='#' aria-expanded='true'> <i class='icon-dot-3 icon-more'></i></a>");
+									echo("<ul class='dropdown-menu dropdown-menu-right'>");
+										echo("<li><a href='#'>Change Settings</a></li>");
+										echo("<li><a href='#'>View User</a></li>");
+										echo("<li><a href='#'>Send Message</a></li></ul></div>");
+									echo("<div class='card-content'>");
+									echo("<p><b><i>Added: </i></b>". $row['added']. "</p>");
+									echo("<p><b><i>Location: </i></b> ". $row['location']. "</p>");
+									echo("<p><b><i>Details: </i></b>". $row['details']. "</p></div>");
+															
+								}
+								}
+						?>
 						</div>
-						<!-- /card header -->
-						
-						<!-- Card content -->
-						<div class="card-content">
-							<p>Member Since 20017</p>
-							<p>Bio data about the user. It could contain what he does, who he is, and much more.</p>
- 							<p>More could be listed here.</p>
 						</div>
-						<!-- /card content -->
-						
-					</div>
-					<!-- /card -->
-					
-				</div>
-				<div class="col-lg-3 col-sm-6">
-				
-					<!-- Card -->
-					<div class="card primary-view">
-					
-						<!-- Card header -->
-						<div class="card-header">
-						
-							<!-- Card photo -->
-							<div class="card-photo">
-								<img title="John Smith" alt="John Smith" src="images/man-3.jpg" class="img-circle avatar">
-							</div>
-							<!-- /card photo -->
-							
-							<!-- Card short description -->
-							<div class="card-short-description">
-								<h5><span class="user-name"><a href="#/">Tyler Ford</a></span></h5>
-								<p class="uppercase">Cancelled</p>
-							</div>
-							<!-- /card short description -->
-							
-							<!-- Card action dropdown -->
-							<div class="action-dropdown dropdown">
-								<a data-toggle="dropdown" href="#/" aria-expanded="true"><i class="icon-dot-3 icon-more"></i></a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li><a href="">Change Setting</a></li>
-									<li><a href="">View Profile</a></li>
-									<li><a href="">Send Message</a></li>
-								</ul>
-							</div>
-							<!-- /card action dropdown -->
-							
 						</div>
-						<!-- /card header -->
-						
-						<!-- Card content -->
-						<div class="card-content">
-							<p>Member Since 2017</p>
-							<p>Bio data about the user. It could contain what he does, who he is, and much more.</p>
- 							<p>More could be listed here.</p>
-						</div>
-						<!-- /card content -->
-						
-					</div>
-					<!-- /card -->
-					
-				</div>
-				<div class="col-lg-3 col-sm-6">
-				
-					<!-- Card -->
-					<div class="card primary-view">
-					
-						<!-- Card header -->
-						<div class="card-header">
-						
-							<!-- Card photo -->
-							<div class="card-photo">
-								<img title="John Smith" alt="John Smith" src="images/man-3.jpg" class="img-circle avatar">
-							</div>
-							<!-- /card photo -->
-							
-							<!-- Card short description -->
-							<div class="card-short-description">
-								<h5><span class="user-name"><a href="#/">John Smith</a></span></h5>
-								<p class="uppercase">Agent</p>
-							</div>
-							<!-- /card short description -->
-							
-							<!-- Card action dropdown -->
-							<div class="action-dropdown dropdown">
-								<a data-toggle="dropdown" href="#/" aria-expanded="true"><i class="icon-dot-3 icon-more"></i></a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li><a href="">Change Setting</a></li>
-									<li><a href="">View Profile</a></li>
-									<li><a href="">Send Message</a></li>
-								</ul>
-							</div>
-							<!-- /card action dropdown -->
-							
-						</div>
-						<!-- /card header -->
-						
-						<!-- Card content -->
-						<div class="card-content">
-							<p>Member Since 2008</p>
-							<p>Bio data about the user. It could contain what he does, who he is, and much more.</p>
- 							<p>More could be listed here.</p>
-						</div>
-						<!-- /card content -->
-						
-					</div>
-					<!-- /card -->
-					
-				</div>
-				<div class="col-lg-3 col-sm-6">
-				
-					<!-- Card -->
-					<div class="card primary-view">
-					
-						<!-- Card header -->
-						<div class="card-header">
-						
-							<!-- Card photo -->
-							<div class="card-photo">
-								<img title="John Smith" alt="John Smith" src="images/man-3.jpg" class="img-circle avatar">
-							</div>
-							<!-- /card photo -->
-							
-							<!-- Card short description -->
-							<div class="card-short-description">
-								<h5><span class="user-name"><a href="#/">John Smith</a></span></h5>
-								<p class="uppercase">Agent</p>
-							</div>
-							<!-- /card short description -->
-							
-							<!-- Card action dropdown -->
-							<div class="action-dropdown dropdown">
-								<a data-toggle="dropdown" href="#/" aria-expanded="true"><i class="icon-dot-3 icon-more"></i></a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li><a href="">Change Setting</a></li>
-									<li><a href="">View Profile</a></li>
-									<li><a href="">Send Message</a></li>
-								</ul>
-							</div>
-							<!-- /card action dropdown -->
-							
-						</div>
-						<!-- /card header -->
-						
-						<!-- Card content -->
-						<div class="card-content">
-							<p>Member Since 2008</p>
-							<p>Bio data about the user. It could contain what he does, who he is, and much more.</p>
- 							<p>More could be listed here.</p>
-						</div>
-						<!-- /card content -->
-						
-					</div>
-					<!-- /card -->
-					
-				</div>
+			</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-3 col-sm-6">
 				
-					<!-- Card -->
-					<div class="card primary-view">
-					
-						<!-- Card header -->
-						<div class="card-header">
-						
-							<!-- Card photo -->
-							<div class="card-photo">
-								<img title="John Smith" alt="John Smith" src="images/man-3.jpg" class="img-circle avatar">
-							</div>
-							<!-- /card photo -->
-							
-							<!-- Card short description -->
-							<div class="card-short-description">
-								<h5><span class="user-name"><a href="#/">John Smith</a></span></h5>
-								<p class="uppercase">Agent</p>
-							</div>
-							<!-- /card short description -->
-							
-							<!-- Card action dropdown -->
-							<div class="action-dropdown dropdown">
-								<a data-toggle="dropdown" href="#/" aria-expanded="true"><i class="icon-dot-3 icon-more"></i></a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li><a href="">Change Setting</a></li>
-									<li><a href="">View Profile</a></li>
-									<li><a href="">Send Message</a></li>
-								</ul>
-							</div>
-							<!-- /card action dropdown -->
-							
-						</div>
-						<!-- /card header -->
-						
-						<!-- Card content -->
-						<div class="card-content">
-							<p>Member Since 2008</p>
-							<p>Bio data about the user. It could contain what he does, who he is, and much more.</p>
- 							<p>More could be listed here.</p>
-						</div>
-						<!-- /card content -->
-						
-					</div>
-					<!-- /card -->
-					
-				</div>
-				<div class="col-lg-3 col-sm-6">
-				
-					<!-- Card -->
-					<div class="card primary-view">
-					
-						<!-- Card header -->
-						<div class="card-header">
-						
-							<!-- Card photo -->
-							<div class="card-photo">
-								<img title="John Smith" alt="John Smith" src="images/man-3.jpg" class="img-circle avatar">
-							</div>
-							<!-- /card photo -->
-							
-							<!-- Card short description -->
-							<div class="card-short-description">
-								<h5><span class="user-name"><a href="#/">John Smith</a></span></h5>
-								<p class="uppercase">Agent</p>
-							</div>
-							<!-- /card short description -->
-							
-							<!-- Card action dropdown -->
-							<div class="action-dropdown dropdown">
-								<a data-toggle="dropdown" href="#/" aria-expanded="true"><i class="icon-dot-3 icon-more"></i></a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li><a href="">Change Setting</a></li>
-									<li><a href="">View Profile</a></li>
-									<li><a href="">Send Message</a></li>
-								</ul>
-							</div>
-							<!-- /card action dropdown -->
-							
-						</div>
-						<!-- /card header -->
-						
-						<!-- Card content -->
-						<div class="card-content">
-							<p>Member Since 2008</p>
-							<p>Bio data about the user. It could contain what he does, who he is, and much more.</p>
- 							<p>More could be listed here.</p>
-						</div>
-						<!-- /card content -->
-						
-					</div>
-					<!-- /card -->
-					
-				</div>
-				<div class="col-lg-3 col-sm-6">
-				
-					<!-- Card -->
-					<div class="card primary-view">
-					
-						<!-- Card header -->
-						<div class="card-header">
-						
-							<!-- Card photo -->
-							<div class="card-photo">
-								<img title="John Smith" alt="John Smith" src="images/man-3.jpg" class="img-circle avatar">
-							</div>
-							<!-- /card photo -->
-							
-							<!-- Card short description -->
-							<div class="card-short-description">
-								<h5><span class="user-name"><a href="#/">John Smith</a></span></h5>
-								<p class="uppercase">Agent</p>
-							</div>
-							<!-- /card short description -->
-							
-							<!-- Card action dropdown -->
-							<div class="action-dropdown dropdown">
-								<a data-toggle="dropdown" href="#/" aria-expanded="true"><i class="icon-dot-3 icon-more"></i></a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li><a href="">Change Setting</a></li>
-									<li><a href="">View Profile</a></li>
-									<li><a href="">Send Message</a></li>
-								</ul>
-							</div>
-							<!-- /card action dropdown -->
-							
-						</div>
-						<!-- /card header -->
-						
-						<!-- Card content -->
-						<div class="card-content">
-							<p>Member Since 2008</p>
-							<p>Bio data about the user. It could contain what he does, who he is, and much more.</p>
- 							<p>More could be listed here.</p>
-						</div>
-						<!-- /card content -->
-						
-					</div>
-					<!-- /card -->
-					
-				</div>
-				<div class="col-lg-3 col-sm-6">
-				
-					<!-- Card -->
-					<div class="card primary-view">
-					
-						<!-- Card header -->
-						<div class="card-header">
-						
-							<!-- Card photo -->
-							<div class="card-photo">
-								<img title="John Smith" alt="John Smith" src="images/man-3.jpg" class="img-circle avatar">
-							</div>
-							<!-- /card photo -->
-							
-							<!-- Card short description -->
-							<div class="card-short-description">
-								<h5><span class="user-name"><a href="#/">John Smith</a></span></h5>
-								<p class="uppercase">Agent</p>
-							</div>
-							<!-- /card short description -->
-							
-							<!-- Card action dropdown -->
-							<div class="action-dropdown dropdown">
-								<a data-toggle="dropdown" href="#/" aria-expanded="true"><i class="icon-dot-3 icon-more"></i></a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li><a href="">Change Setting</a></li>
-									<li><a href="">View Profile</a></li>
-									<li><a href="">Send Message</a></li>
-								</ul>
-							</div>
-							<!-- /card action dropdown -->
-							
-						</div>
-						<!-- /card header -->
-						
-						<!-- Card content -->
-						<div class="card-content">
-							<p>Member Since 2008</p>
-							<p>Bio data about the user. It could contain what he does, who he is, and much more.</p>
- 							<p>More could be listed here.</p>
-						</div>
-						<!-- /card content -->
-						
-					</div>
-					<!-- /card -->
-					
-				</div>
-			</div>
 		</div>
 		
 		<!-- Footer -->

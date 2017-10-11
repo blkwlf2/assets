@@ -278,21 +278,25 @@
 								?>
 							</ul>
 						</div>
-						<div class="panel-body" id="panel-body">
+						<div class="panel-body">
 						<?php
-//Sql Query To Fetch News Feed From Database
-$sql = "Select * from latest";
-$result = $result=mysqli_query($conn,$sql);
-while($row =  $result->fetch_assoc())
-{
-	echo("<ul class='list-item'>");
-	echo("<li>");
-    echo("<div class='feed-element'>");
-    echo("<div class='feed-head'>" . $row['title'] . "</div>");
-    echo("<p><div class='feed-content'>" . $row['body'] . "</p></div>");
-    echo("</div></li>");
-}
-?>
+							//Sql Query To Fetch News Feed From Database
+							$sql = "Select * from latest";
+							$result = $result=mysqli_query($conn,$sql);
+							
+							if ($result->num_rows > 0)
+								{
+									while($row =  $result->fetch_assoc())
+									{
+									echo("<ul class='list-item'>");
+									echo("<li>");
+									echo("<div class='feed-element'>");
+									echo("<div class='feed-head'>" . $row['title'] . "</div>");
+									echo("<p><div class='feed-content'>" . $row['body'] . "</p></div>");
+									echo("</div></li>");
+								}
+								}
+						?>
 						</div>
 						<button class="btn btn-primary btn-block btn-2x">SHOW MORE</button>
 					</div>
@@ -339,7 +343,7 @@ while($row =  $result->fetch_assoc())
 								<?php
 									$drop = new typical_dropdown();
 									$drop->clear();
-									$drop->add_item("#","arrows-ccw","Add event");
+									$drop->add_item("#modal-1","arrows-ccw","Add event");
 									$drop->add_item("#","list","Delete an event");
 									$drop->add_item("#","chart-pie","Update an event");
 									$drop->export_gear();
@@ -350,7 +354,7 @@ while($row =  $result->fetch_assoc())
 						<div class="panel-body">
 							Events go here, taken from database
 							<div class="more">
-								<button class="btn btn-primary">Click More</button>
+								<A href="events.php"><button class="btn btn-primary">Click More</button></a>
 							</div>
 						</div>
 					</div>
@@ -370,6 +374,25 @@ while($row =  $result->fetch_assoc())
 		<!-- /main content -->
 	  
 	</div>
+	<!--Large modal-->
+		<div id="modal-1" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Large modal</h4>
+					</div>
+					<div class="modal-body">
+						<p>This is a test</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<!-- /large modal-->
 	<!-- /main container -->
   
 </div>
