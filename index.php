@@ -281,28 +281,16 @@
 						<div class="panel-body" id="panel-body">
 						<?php
 //Sql Query To Fetch News Feed From Database
-	$servername = "localhost";
-	$username = "root";
-	$password = "changeme";
-	$dbname = "tfvisuals";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	
-	// Check connection
-	if ($conn->connect_error)
-	{
-		die("Connection failed: " . $conn->connect_error);
-	}
 $sql = "Select * from latest";
 $result = $result=mysqli_query($conn,$sql);
 while($row =  $result->fetch_assoc())
 {
-    echo("<div id='latest'>");
-    echo("<div class='comment-head'>" . $row['title'] . "</div>");
-    echo("<div class='comment-text'>" . $row['body'] . "</div>");
-	$drop->add_divider();
-    echo("</div>");
+	echo("<ul class='list-item'>");
+	echo("<li>");
+    echo("<div class='feed-element'>");
+    echo("<div class='feed-head'>" . $row['title'] . "</div>");
+    echo("<p><div class='feed-content'>" . $row['body'] . "</p></div>");
+    echo("</div></li>");
 }
 ?>
 						</div>
