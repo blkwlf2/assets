@@ -4,8 +4,8 @@
 	require("php/index_functions.php"); 
 
 	$servername = "localhost";
-	$username = "root";
-	$password = "changeme";
+	$username = "admin";
+	$password = "2million";
 	$dbname = "tfvisuals";
 
 	// Create connection
